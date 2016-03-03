@@ -1,0 +1,14 @@
+server:
+	gcc server.c bank.c -o server
+
+client:
+	gcc client.c bank.c -o client
+
+open:
+	gcc open.c bank.c dao.c -o open
+
+
+bank.c bank.h	定义各种宏/结构体/key
+server.c		消息队列的创建和删除(信号2),子进程open的启动
+open.c			接收各种消息，并处理(不包括读写文件)
+dao.c dao.h		定义了各种读写文件的函数
